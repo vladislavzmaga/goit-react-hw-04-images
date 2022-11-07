@@ -55,7 +55,7 @@ export const ImageGallery = ({ value, page }) => {
     return <Loader />;
   }
   if (status === 'rejected') {
-    return <SecondTitle>Nothing found for your request!!!</SecondTitle>;
+    return <SecondTitle>No results were found for your request!!!</SecondTitle>;
   }
   if (status === 'resolved') {
     return (

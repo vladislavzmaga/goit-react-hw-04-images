@@ -1,23 +1,20 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { SearchBar } from './Searchbar/Searchbar';
 
-export class App extends Component {
-  state = {
-    value: '',
-    page: 1,
+export const App = () => {
+  const [value, setValue] = useState('');
+  const [page, setPage] = useState(1);
+
+  const handleSubmit = (value, page) => {
+    setPage(page);
+    setValue(value);
   };
 
-  handleSubmit = (value, page) => {
-    this.setState({ value, page });
-  };
-
-  render() {
-    return (
-      <div>
-        <SearchBar onSubmit={this.handleSubmit} />
-        <ImageGallery value={this.state.value} page={this.state.page} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <SearchBar onSubmit={handleSubmit} />
+      <ImageGallery value={value} page={page} />
+    </div>
+  );
+};
